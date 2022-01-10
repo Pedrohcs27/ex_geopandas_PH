@@ -31,13 +31,14 @@ def PlotSaveFocosUc(Ucs, focos):
     Uc = Ucs[Ucs.index == i]# Define a UC.
     foco_uc = gpd.overlay(focos, Uc, how='intersection', keep_geom_type=False)# Faz a intercessão dos focos com a UC.
     if foco_uc.empty == True:
-      print(f'A UC {Uc.rotulo[i]} não possui focos dentro dos seus limites')# Se o resultado da intercessão for vazio.
-    else:
+      print(f'A UC {Uc.rotulo[i]} não possui focos dentro dos seus limites')# Se o resultado da intercessão for vazio printa a msg padrão com 
+    else:                                                                   #o nome da Uc.
       #Plota e salva o plot no formato .png
       ax = Uc.plot(color='white', edgecolor='k')
       foco_uc.plot(ax=ax, marker='x', color='red', markersize=5)
       plt.title(f'{Ucs.rotulo[i]} - Quantidade de focos:{len(foco_uc)}')
       plt.savefig(f'{Ucs.rotulo[i]}_focos_2019.png')
+      
       # Salva no formato kml apenas os limites da Uc iterada e os focos que fazem intersecção com ela.
       fiona.supported_drivers['KML'] = 'rw'
       gpd.io.file.fiona.drvsupport.supported_drivers['KML'] = 'rw'
