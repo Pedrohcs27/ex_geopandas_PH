@@ -7,13 +7,11 @@
 !pip install descartes
 #Importação das Biliotecas.
 
-# %matplotlib inline
 import geopandas as gpd
 import pandas as pd
 import fiona
 import matplotlib.pyplot as plt
-import smtplib
-import email.message
+
 
 # Leitura do shp de focos de 2019 de incêndio no estado do RJ baixados do BDqueimadas/INPE.
 # Leitura do shp de Unidades de Conservação(GeoPortal Inea).
