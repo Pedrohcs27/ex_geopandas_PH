@@ -30,6 +30,7 @@ def PlotSaveFocosUc(Ucs, focos):
       foco_uc.plot(ax=ax, marker='x', color='red', markersize=5)
       plt.title(f'{Ucs.rotulo[i]} - Quantidade de focos:{len(foco_uc)}')
       plt.savefig(f'{Ucs.rotulo[i]}_focos_2019.png')
+      plt.rcParams.update({'figure.max_open_warning': 0})
       
       # Salva no formato kml apenas os limites da Uc iterada e os focos que fazem intersecção com ela.
       fiona.supported_drivers['KML'] = 'rw'
